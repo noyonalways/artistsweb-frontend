@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![Youtube][youtube-shield]][youtube-url]
+[![Facebook][facebook-shield]][facebook-url]
+[![Facebook Page][facebook-shield]][facebook-group-url]
+[![Instagram][instagram-shield]][instagram-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![VS Code Theme][vscode-shield]][vscode-theme-url]
 
-## Getting Started
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+    <img src="./public/logo.png" alt="Logo" width="80" height="80" style="border-radius:50%;" />
+    <h3 align="center">
+        <a href="#" target="_blank" >
+            Artistsweb Frontend
+        </a>
+    </h3>
+</p>
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Contact
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Email: [noyonrahman2003@gmail.com](mailto:noyonrahman2003@gmail.com)
+- LinkedIn: [Noyon Rahman](https://linkedin.com/in/noyonalways)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<!-- MARKDOWN LINKS & IMAGES -->
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[youtube-shield]: https://img.shields.io/badge/-Youtube-black.svg?style=round-square&logo=youtube&color=555&logoColor=white
+[youtube-url]: https://youtube.com/@deskofnoyon
+[facebook-shield]: https://img.shields.io/badge/-Facebook-black.svg?style=round-square&logo=facebook&color=555&logoColor=white
+[facebook-url]: https://facebook.com/noyonalways
+[facebook-group-url]: https://facebook.com/webbronoyon
+[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=round-square&logo=instagram&color=555&logoColor=white
+[instagram-url]: https://instagram.com/noyonalways
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=round-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/noyonalways
+[vscode-shield]: https://img.shields.io/badge/-VS%20Code%20Theme-black.svg?style=round-square&logo=visualstudiocode&colorB=555
+[vscode-theme-url]: https://marketplace.visualstudio.com/items?itemName=noyonalways.codevibe-themes
