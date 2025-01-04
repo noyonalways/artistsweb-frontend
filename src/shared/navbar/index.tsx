@@ -4,7 +4,6 @@ import Button from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { HiOutlineBars2 } from "react-icons/hi2";
 import { NavigationMenu } from "./navigation-menu";
 
 const Navbar = () => {
@@ -21,14 +20,14 @@ const Navbar = () => {
             <Button className="w-36 font-medium">Get in touch</Button>
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="rounded-full hover:bg-gray-100 text-xl border border-primary size-10 flex items-center justify-center"
+              className="rounded-full flex flex-col hover:bg-gray-100 text-xl border border-primary size-10 items-center justify-center"
               aria-label="Open menu"
             >
-              <HiOutlineBars2 />
+              <span className="w-[40%] h-[2px] bg-foreground"></span>
+              <span className="w-[40%] h-[2px] bg-foreground mt-1"></span>
             </button>
           </div>
         </div>
-
         <NavigationMenu
           isOpen={isMenuOpen}
           onClose={() => setIsMenuOpen(false)}

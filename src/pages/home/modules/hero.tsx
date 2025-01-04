@@ -22,7 +22,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col gap-y-6 lg:flex-row lg:items-center text-2xl lg:text-3xl lg:gap-20">
-              <p className="w-full max-w-lg">
+              <p className="w-full max-w-lg leading-snug">
                 We build engaging websites, brands & innovative e-commerce
                 solutions.
               </p>
