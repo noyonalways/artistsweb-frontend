@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${onest.variable} antialiased`}>{children}</body>
+      <body className={`${onest.variable} antialiased font-onest`}>
+        {children}
+      </body>
     </html>
   );
 }
