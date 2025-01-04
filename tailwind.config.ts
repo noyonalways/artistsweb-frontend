@@ -18,7 +18,7 @@ export default {
         "2xl": "1723px",
       },
       padding: {
-        DEFAULT: ".5rem",
+        DEFAULT: ".8rem",
         sm: "0rem",
       },
     },
