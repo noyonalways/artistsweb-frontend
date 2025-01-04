@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm">
       <nav className="container">
-        <div className="flex justify-between items-center h-[100px]">
+        <div className="flex justify-between items-center h-[70px] lg:h-[100px]">
           <Link href="/">
             <Image src="/logo.svg" alt="Logo" width={65} height={100} />
           </Link>
