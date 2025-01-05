@@ -1,3 +1,4 @@
+import Footer from "@/shared/footer";
 import Navbar from "@/shared/navbar";
 
 interface IProps {
@@ -9,6 +10,7 @@ const CommonLayout = ({ children }: IProps) => {
     <>
       <Navbar />
       <main>{children}</main>
+      <Footer />
     </>
   );
 };
