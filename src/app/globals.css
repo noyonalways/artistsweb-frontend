@@ -58,6 +58,60 @@
   .btn:hover span div:nth-child(2) {
     @apply translate-y-0;
   }
+
+  .section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .section-bg-item {
+    background-image: url('/featured-bg.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+  }
+
+  .section-bg-item:first-child {
+    @apply bg-cover;
+    background-position: 100%;
+  }
+
+  .section-bg-item:last-child {
+    @apply bg-cover;
+    background-position: 0;
+  }
+
+  .section-bg-item:before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    top: 0;
+  }
+
+  .section-bg-item:first-child:before {
+    left: 0;
+    background: -webkit-linear-gradient(left, #fff, hsla(0, 0%, 100%, 0));
+    background: -o-linear-gradient(left, #fff 0, hsla(0, 0%, 100%, 0) 100%);
+    background: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));
+  }
+
+  .section-bg-item:last-child:before {
+    right: 0;
+    background: -webkit-linear-gradient(left, hsla(0, 0%, 100%, 0), #fff);
+    background: -o-linear-gradient(left, hsla(0, 0%, 100%, 0) 0, #fff 100%);
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 0), #fff);
+  }
+
 }
 
 body {
