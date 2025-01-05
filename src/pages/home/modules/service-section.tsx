@@ -78,7 +78,6 @@ const ServiceSection = () => {
               <div className="border border-primary px-6 lg:px-12 py-2 lg:py-4 text-base lg:text-2xl rounded-ful text-background font-medium rounded-full">
                 15 Awards
               </div>
-              text-lg lg:
             </div>
           </div>
         </div>
