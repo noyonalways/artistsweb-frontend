@@ -1,20 +1,15 @@
 import Button from "@/components/ui/button";
+import { getServices } from "@/service/service";
+import { TService } from "@/types/service";
 
-const services = [
-  "E-Commerce",
-  "Website Design",
-  "Web Development",
-  "Digital Products",
-  "Brand Identities",
-  "SEO Optimisation",
-];
-
-const ContactSection = () => {
+const ContactSection = async () => {
+  const res = await getServices();
+  const services: TService[] = res?.data;
   return (
     <section className="py-16">
       <div className="container">
         <div className="flex flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:justify-between lg:items-end">
-          <div>
+          <div className="flex-1">
             <h1 className="text-3xl lg:text-[3.5vw] font-semibold mb-4 lg:mb-10">
               We&apos;re good at
             </h1>
@@ -23,12 +18,12 @@ const ContactSection = () => {
               <ul className="space-y-3 lg:space-y-6">
                 {services.map((service) => {
                   return (
-                    <li key={service}>
+                    <li key={service._id}>
                       <a
                         className="text-2xl lg:text-4xl font-semibold"
                         href="#"
                       >
-                        {service}
+                        {service?.name}
                       </a>
                     </li>
                   );
@@ -37,7 +32,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="w-full lg:max-w-[974px] bg-primary text-background rounded-3xl lg:rounded-[32px] p-7 lg:p-14">
+          <div className="w-full lg:max-w-[800px] 2xl:max-w-[974px] bg-primary text-background rounded-3xl lg:rounded-[32px] p-7 lg:p-14">
             <h1 className="text-2xl lg:text-[2.5vw] leading-snug font-semibold mb-6 lg:mb-8">
               Let&apos;s start with a conversation about how we can help you!
               Get in touch, we&apos;re a nice bunch.

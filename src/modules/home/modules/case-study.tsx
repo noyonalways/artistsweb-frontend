@@ -1,50 +1,11 @@
-import ServiceCard from "@/components/service-card";
+import CaseStudyCard from "@/components/case-study-card";
+import { getCaseStudies } from "@/service/caseStudy";
+import { TCaseStudy } from "@/types/caseStudy";
 
-type TService = {
-  id: string;
-  name: string;
-  caseStudyName: string;
-  isLatest: boolean;
-  image: string;
-  url: string;
-};
+const CaseStudySection = async () => {
+  const res = await getCaseStudies();
+  const caseStudies: TCaseStudy[] = res?.data;
 
-const services: TService[] = [
-  {
-    id: "001",
-    name: "E-commerce",
-    caseStudyName: "Alveena Casa",
-    isLatest: true,
-    image: "",
-    url: "",
-  },
-  {
-    id: "002",
-    name: "Website Design",
-    caseStudyName: "Romans & Partners",
-    isLatest: true,
-    image: "",
-    url: "",
-  },
-  {
-    id: "003",
-    name: "Digital Products",
-    caseStudyName: "Fudli App",
-    isLatest: true,
-    image: "",
-    url: "",
-  },
-  {
-    id: "004",
-    name: "Brand Identities",
-    caseStudyName: "Learning Library",
-    isLatest: true,
-    image: "",
-    url: "",
-  },
-];
-
-const ServiceSection = () => {
   return (
     <section className="bg-foreground py-14 lg:py-20 relative overflow-hidden">
       <div className="container ">
@@ -54,8 +15,8 @@ const ServiceSection = () => {
           </h2>
 
           <div className="space-y-6 lg:space-y-8 border-b border-b-gray-600 pb-8">
-            {services.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {caseStudies.map((service) => (
+              <CaseStudyCard key={service._id} caseStudy={service} />
             ))}
           </div>
 
@@ -87,4 +48,4 @@ const ServiceSection = () => {
   );
 };
 
-export default ServiceSection;
+export default CaseStudySection;
