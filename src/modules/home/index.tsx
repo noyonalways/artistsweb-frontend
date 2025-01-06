@@ -1,7 +1,8 @@
+import CaseStudySection from "./modules/case-study";
 import ContactSection from "./modules/contact-section";
 import FeaturedSection from "./modules/features-section";
+import FeedbackSection from "./modules/feedback-section";
 import HeroSection from "./modules/hero";
-import ServiceSection from "./modules/service-section";
 import WorkSection from "./modules/work-section";
 
 const HomePage = () => {
@@ -9,9 +10,10 @@ const HomePage = () => {
     <>
       <HeroSection />
       <WorkSection />
-      <ServiceSection />
+      <CaseStudySection />
       <FeaturedSection />
       <ContactSection />
+      <FeedbackSection />
     </>
   );
 };
