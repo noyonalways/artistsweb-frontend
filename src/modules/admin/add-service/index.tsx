@@ -4,14 +4,19 @@ import Form from "@/components/form/form";
 import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Textarea from "@/components/form/textarea";
+import { useUser } from "@/context/user-context";
 import { serviceSchema } from "@/schemas/service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 const AddService = () => {
-  const onSubmit = (data: z.infer<typeof serviceSchema>) => {
+  const onSubmit = async (data: z.infer<typeof serviceSchema>) => {
     console.log(data);
   };
+
+  const { user } = useUser();
+
+  console.log(user);
 
   return (
     <div className="w-full max-w-2xl mx-auto">
