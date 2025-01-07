@@ -39,7 +39,7 @@ const LoginPage = () => {
             <div className="space-y-6">
               <div>
                 <Input
-                  className="w-full bg-white/10 border-gray-600 rounded-lg px-3 py-3 text-white placeholder:text-gray-400 outline-none border border-transparent focus:border-primary focus:border"
+                  className="w-full px-3 py-2 rounded-md bg-white/10"
                   name="email"
                   placeholder="Email address"
                 />
@@ -47,7 +47,7 @@ const LoginPage = () => {
 
               <div>
                 <Input
-                  className="w-full bg-white/10 border-gray-600 rounded-lg px-3 py-3 text-white placeholder:text-gray-400 outline-none border border-transparent focus:border-primary focus:border"
+                  className="w-full px-3 py-2 rounded-md bg-white/10"
                   name="password"
                   type="password"
                   placeholder="Password"

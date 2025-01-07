@@ -1,7 +1,15 @@
+import AddWork from "@/modules/admin/add-work";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Add Work | Admin Dashboard | Digital Agency",
+  description: "",
+};
+
 const AddWorkPage = () => {
   return (
     <div>
-      <h1>Add Work Page</h1>
+      <AddWork />
     </div>
   );
 };

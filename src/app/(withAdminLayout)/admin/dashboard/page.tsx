@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard | Digital Agency",
+  description: "",
+};
+
 const DashboardPage = () => {
   return (
     <div>
