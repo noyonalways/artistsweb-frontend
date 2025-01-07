@@ -13,7 +13,7 @@ const HeroSection = async () => {
   return (
     <section className="min-h-svh flex items-center justify-center bg-background">
       <div className="container">
-        <div className="space-y-10 lg:space-y-36">
+        <div className="space-y-10 lg:space-y-28">
           <h1 className="text-[12vw] md:text-[6.5vw] lg:text-[7.75vw] lg:leading-tight font-semibold font-onest">
             {data?.heading.split(" ")[0]}{" "}
             <span className="text-transparent bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text animate-heroTextGradient bg-[length:200%_auto]">
