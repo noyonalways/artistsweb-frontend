@@ -9,7 +9,7 @@ import { NavigationMenu } from "./navigation-menu";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-white/70">
+    <header className="sticky top-0 z-50 backdrop-blur bg-white/70">
       <nav className="container">
         <div className="flex justify-between items-center h-[70px] lg:h-[100px]">
           <Link href="/">

@@ -32,7 +32,7 @@ const ContactSection = async () => {
             </div>
           </div>
 
-          <div className="w-full lg:max-w-[800px] 2xl:max-w-[974px] bg-primary text-background rounded-3xl lg:rounded-[32px] p-7 lg:p-14">
+          <div className="w-full lg:max-w-[700px] 2xl:max-w-[974px] bg-primary text-background rounded-3xl lg:rounded-[32px] p-7 lg:p-14">
             <h1 className="text-2xl lg:text-[2.5vw] leading-snug font-semibold mb-6 lg:mb-8">
               Let&apos;s start with a conversation about how we can help you!
               Get in touch, we&apos;re a nice bunch.
