@@ -1,5 +1,5 @@
-import { brands } from "@/constant";
 import Image from "next/image";
+import BrandLogos from "./brand-logos";
 
 const PartnerSection = () => {
   return (
@@ -87,25 +87,9 @@ const PartnerSection = () => {
           businesses and industry leaders.
         </h1>
 
-        <div className="flex justify-between gap-4 lg:gap-x-10 lg:gap-y-14 flex-wrap mt-12 lg:mt-28">
-          {brands.map((brand) => {
-            return (
-              <div
-                key={brand.id}
-                className="lg:w-[200px] h-20 basis-[25%] lg:basis-[15%]"
-              >
-                <Image
-                  width={220}
-                  height={100}
-                  className="w-full h-16 lg:h-20 object-contain"
-                  src={brand.logo}
-                  alt="partner-section"
-                />
-              </div>
-            );
-          })}
-        </div>
+        <BrandLogos />
       </div>
+
       <div className="mt-12 lg:mt-36">
         <h1 className="text-3xl text-center lg:text-left lg:text-[7vw] font-semibold">
           Elevate your digital presence
