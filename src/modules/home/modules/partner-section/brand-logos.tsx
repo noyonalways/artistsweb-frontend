@@ -52,29 +52,37 @@ const BrandLogos = () => {
 
   return (
     <div className="mt-12 lg:mt-28 overflow-hidden">
-      <motion.div className="flex justify-between items-center gap-6 lg:gap-10  mx-auto">
+      <motion.div className="flex justify-between items-center gap-6 lg:gap-10 mx-auto">
         <AnimatePresence mode="wait">
-          {getCurrentGroup().map((brand, index) => (
-            <motion.div
-              key={`${brand.id}-${currentGroup}-${index}`}
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
-              className="w-[calc(33%-1rem)] lg:w-[calc(25%-1rem)]"
-            >
-              <Image
-                width={200}
-                height={100}
-                className="w-full h-12 lg:h-16 object-contain"
-                src={brand.logo}
-                alt={brand.name}
-              />
-            </motion.div>
-          ))}
+          <motion.div
+            key={currentGroup}
+            className="flex justify-between items-center gap-6 lg:gap-10 w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {getCurrentGroup().map((brand, index) => (
+              <motion.div
+                key={`${brand.id}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+                className="w-[calc(33%-1rem)] lg:w-[calc(25%-1rem)]"
+              >
+                <Image
+                  width={200}
+                  height={100}
+                  className="w-full h-12 lg:h-16 object-contain"
+                  src={brand.logo}
+                  alt={brand.name}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
         </AnimatePresence>
       </motion.div>
     </div>
