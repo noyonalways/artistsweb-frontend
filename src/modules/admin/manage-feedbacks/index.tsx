@@ -141,7 +141,7 @@ const ManageFeedbacks = ({ feedbacks }: IProps) => {
       ) : (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <div className="divide-y">
-            {feedbacks.map((feedback) => (
+            {feedbacks?.map((feedback) => (
               <div
                 key={feedback._id}
                 className="p-4 flex items-center justify-between hover:bg-gray-50"

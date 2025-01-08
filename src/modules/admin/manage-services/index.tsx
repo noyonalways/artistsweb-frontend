@@ -120,7 +120,7 @@ const ManageServices = ({ services }: IProps) => {
       ) : (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <div className="divide-y">
-            {services.map((service) => (
+            {services?.map((service) => (
               <div
                 key={service._id}
                 className="p-4 flex items-center justify-between hover:bg-gray-50"

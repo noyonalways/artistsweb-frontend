@@ -8,14 +8,14 @@ import { login } from "@/service/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { CgSpinner } from "react-icons/cg";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { toast } from "sonner";
 import { z } from "zod";
 
-const LoginPage = () => {
+const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -108,6 +108,14 @@ const LoginPage = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+const LoginPage = () => {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
   );
 };
 

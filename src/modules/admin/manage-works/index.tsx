@@ -140,7 +140,7 @@ const ManageWorks = ({ works }: IProps) => {
       ) : (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <div className="divide-y">
-            {works.map((work) => (
+            {works?.map((work) => (
               <div
                 key={work._id}
                 className="p-4 flex items-center justify-between hover:bg-gray-50"
