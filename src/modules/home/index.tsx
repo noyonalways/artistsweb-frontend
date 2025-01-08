@@ -1,6 +1,6 @@
 import CaseStudySection from "./modules/case-study";
 import ContactSection from "./modules/contact-section";
-import FeaturedSection from "./modules/features-section";
+import FeaturedSection from "./modules/featured-section";
 import FeedbackSection from "./modules/feedback-section";
 import HeroSection from "./modules/hero";
 import PartnerSection from "./modules/partner-section";

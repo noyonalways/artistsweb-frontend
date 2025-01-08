@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BrandLogos from "./brand-logos";
+import ScrollText from "./scroll-text";
 
 const PartnerSection = () => {
   return (
@@ -90,13 +91,9 @@ const PartnerSection = () => {
         <BrandLogos />
       </div>
 
-      <div className="mt-12 lg:mt-36">
-        <h1 className="text-3xl text-center lg:text-left lg:text-[7vw] font-semibold">
-          Elevate your digital presence
-        </h1>
-      </div>
+      <ScrollText />
 
-      <div className="container mt-12 lg:mt-28">
+      <div className="container">
         <div className="flex flex-col space-y-8 lg:space-y-0 lg:flex-row lg:items-end">
           <div className="space-y-6 lg:space-y-16">
             <h1 className="text-3xl lg:text-[3.5vw] leading-snug font-semibold w-full lg:max-w-5xl mt-12 lg:mt-28">
