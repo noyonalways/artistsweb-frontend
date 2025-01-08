@@ -7,14 +7,14 @@ interface IProps {
 
 const WorkCard = ({ work }: IProps) => {
   return (
-    <div className="cursor-pointer relative lg:max-w-[830px] lg:h-[710px] mx-auto bg-white rounded-3xl  overflow-hidden border-4 border-transparent hover:border-primary duration-500">
+    <div className="cursor-pointer relative lg:min-w-[830px]  bg-white rounded-3xl  overflow-hidden border-4 border-transparent hover:border-primary duration-500">
       <div>
         <Image
           width={830}
           height={710}
           src={work.image}
           alt="Mobile Mockup"
-          className="w-full"
+          className="w-full lg:h-[710px] object-cover"
         />
         {work?.isLatest && (
           <span className="absolute top-6 right-6 lg:top-10 lg:right-10 bg-primary text-white font-semibold py-2 px-6 rounded-full shadow-sm">
