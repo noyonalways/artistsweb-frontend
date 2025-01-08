@@ -1,14 +1,11 @@
 import Button from "@/components/ui/button";
 import { loadHeroSectionData } from "@/service/heroSection";
-import { isHeroSection } from "@/typeGuard/hero-section";
 import { THeroSection } from "@/types/hereSection";
+import Highlights from "./highlights";
 
 const HeroSection = async () => {
   const res = await loadHeroSectionData();
-  let data;
-  if (isHeroSection(res?.data)) {
-    data = res.data as THeroSection;
-  }
+  const data = res.data as THeroSection;
 
   return (
     <section className="min-h-svh flex items-center justify-center bg-background">
@@ -23,12 +20,7 @@ const HeroSection = async () => {
           </h1>
 
           <div className="flex flex-col gap-y-10 lg:gap-y-0 lg:flex-row justify-between">
-            <div className="flex text-2xl items-center space-x-4">
-              <div className="bg-foreground text-background p-7 size-[56px] lg:size-[72px] rounded-full flex items-center justify-center">
-                20
-              </div>
-              <div className="text-gray-700">Years on the market</div>
-            </div>
+            <Highlights highlights={data?.highlights} />
 
             <div className="flex flex-col gap-y-6 lg:flex-row lg:items-center text-2xl lg:text-3xl lg:gap-20">
               <p className="w-full max-w-lg leading-snug">{data?.subheading}</p>

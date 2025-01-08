@@ -2,7 +2,7 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { caseStudySchema } from "@/schemas/case-study";
+import { caseStudySchema } from "@/schemas/caseStudy";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 

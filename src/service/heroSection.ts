@@ -2,7 +2,7 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { heroSectionSchema } from "@/schemas/hero-section";
+import { heroSectionSchema } from "@/schemas/heroSection";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 

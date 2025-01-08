@@ -5,37 +5,21 @@ import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Select from "@/components/form/select";
 import Switch from "@/components/form/switch";
-import { API_BASE_URL } from "@/config/environment";
-import { caseStudySchema } from "@/schemas/case-study";
-import { createCaseStudy } from "@/service/case-study";
+import { caseStudySchema } from "@/schemas/caseStudy";
+import { createCaseStudy } from "@/service/caseStudy";
 import { TService } from "@/types/service";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 import { toast } from "sonner";
 import { z } from "zod";
 
-const AddCaseStudy = () => {
-  const [services, setServices] = useState<TService[]>([]);
-  const [loading, setLoading] = useState(true);
+interface IProps {
+  services: TService[];
+}
+
+const AddCaseStudy = ({ services }: IProps) => {
   const [submitting, setSubmitting] = useState(false);
-
-  // Fetch services
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}/services`);
-        const data = await response.json();
-        setServices(data?.data);
-      } catch (error) {
-        console.error("Failed to fetch services:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServices();
-  }, []);
 
   const onSubmit = async (data: z.infer<typeof caseStudySchema>) => {
     try {
@@ -54,22 +38,6 @@ const AddCaseStudy = () => {
       setSubmitting(false);
     }
   };
-
-  if (loading) {
-    return (
-      <div>
-        <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
-          <div className="animate-pulse space-y-4">
-            <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-            <div className="space-y-3">
-              <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-              <div className="h-10 bg-gray-200 rounded"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div>

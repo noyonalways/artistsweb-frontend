@@ -1,5 +1,5 @@
 import CaseStudyCard from "@/components/case-study-card";
-import { getCaseStudies } from "@/service/case-study";
+import { getCaseStudies } from "@/service/caseStudy";
 import { TCaseStudy } from "@/types/caseStudy";
 
 const CaseStudySection = async () => {

@@ -1,7 +1,9 @@
 import AddCaseStudy from "@/modules/admin/add-case-study";
 import ManageCaseStudies from "@/modules/admin/manage-case-studies";
-import { getCaseStudies } from "@/service/case-study";
+import { getCaseStudies } from "@/service/caseStudy";
+import { getServices } from "@/service/service";
 import { TCaseStudy } from "@/types/caseStudy";
+import { TService } from "@/types/service";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,12 +12,17 @@ export const metadata: Metadata = {
 };
 
 const AddCaseStudyPage = async () => {
-  const res = await getCaseStudies();
-  const caseStudies: TCaseStudy[] = res?.data;
+  const [caseStudiesRes, servicesRes] = await Promise.all([
+    getCaseStudies(),
+    getServices(),
+  ]);
+
+  const caseStudies: TCaseStudy[] = caseStudiesRes?.data || [];
+  const services: TService[] = servicesRes?.data || [];
 
   return (
     <div className="grid lg:grid-cols-2 gap-4">
-      <AddCaseStudy />
+      <AddCaseStudy services={services} />
       <ManageCaseStudies caseStudies={caseStudies} />
     </div>
   );

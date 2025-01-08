@@ -164,11 +164,11 @@ const ManageWorks = ({ works }: IProps) => {
                         </span>
                       )}
                     </div>
-                    <div className="flex gap-2 mt-1 flex-wrap">
+                    <div className="flex gap-1 md:gap-2 mt-1 flex-wrap">
                       {work.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs bg-primary/10 text-primary px-[2px] p-[2px] md:px-2 md:py-1 rounded"
+                          className="text-xs bg-primary/10 text-primary px-[6px] p-[2px] md:px-2 md:py-1 rounded"
                         >
                           {tag}
                         </span>
