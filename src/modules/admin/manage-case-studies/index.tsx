@@ -122,7 +122,7 @@ const ManageCaseStudies = ({ caseStudies }: IProps) => {
                 <Select
                   id="service"
                   name="service"
-                  options={services.map((service) => ({
+                  options={services?.map((service) => ({
                     value: service._id,
                     label: service.name,
                   }))}
@@ -178,7 +178,7 @@ const ManageCaseStudies = ({ caseStudies }: IProps) => {
       ) : (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <div className="divide-y">
-            {caseStudies.map((caseStudy) => (
+            {caseStudies?.map((caseStudy) => (
               <div
                 key={caseStudy._id}
                 className="p-4 flex items-center justify-between hover:bg-gray-50"
