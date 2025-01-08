@@ -3,7 +3,7 @@ import { getServices } from "@/service/service";
 import { TService } from "@/types/service";
 
 const ContactSection = async () => {
-  const res = await getServices();
+  const res = await getServices({ limit: "6" });
   const services: TService[] = res?.data;
   return (
     <section className="py-16">

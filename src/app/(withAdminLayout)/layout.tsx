@@ -23,7 +23,7 @@ export default function AdminLayout({
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden lg:bg-gray-100">
+    <div className="flex h-screen overflow-hidden bg-gray-100">
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
 
       <div className="flex flex-col flex-1 w-0 overflow-hidden">

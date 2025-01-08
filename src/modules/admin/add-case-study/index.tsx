@@ -7,24 +7,23 @@ import Select from "@/components/form/select";
 import Switch from "@/components/form/switch";
 import { API_BASE_URL } from "@/config/environment";
 import { caseStudySchema } from "@/schemas/case-study";
+import { createCaseStudy } from "@/service/case-study";
+import { TService } from "@/types/service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
+import { CgSpinner } from "react-icons/cg";
+import { toast } from "sonner";
 import { z } from "zod";
 
-interface Service {
-  id: string;
-  name: string;
-}
-
 const AddCaseStudy = () => {
-  const [services, setServices] = useState<Service[]>([]);
+  const [services, setServices] = useState<TService[]>([]);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   // Fetch services
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        // Replace this with your actual API endpoint
         const response = await fetch(`${API_BASE_URL}/services`);
         const data = await response.json();
         setServices(data?.data);
@@ -38,13 +37,27 @@ const AddCaseStudy = () => {
     fetchServices();
   }, []);
 
-  const onSubmit = (data: z.infer<typeof caseStudySchema>) => {
-    console.log(data);
+  const onSubmit = async (data: z.infer<typeof caseStudySchema>) => {
+    try {
+      setSubmitting(true);
+      const response = await createCaseStudy(data);
+
+      if (!response.success) {
+        toast.error(response?.message);
+        return;
+      }
+
+      toast.success(response?.message);
+    } catch {
+      toast.error("Something went wrong");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (loading) {
     return (
-      <div className="w-full max-w-2xl mx-auto">
+      <div>
         <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
           <div className="animate-pulse space-y-4">
             <div className="h-8 bg-gray-200 rounded w-1/3"></div>
@@ -59,7 +72,7 @@ const AddCaseStudy = () => {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div>
       <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           Add New Case Study
@@ -73,8 +86,8 @@ const AddCaseStudy = () => {
                 id="service"
                 name="service"
                 options={services.map((service) => ({
-                  key: service.id,
-                  value: service.id,
+                  key: service._id,
+                  value: service._id,
                   label: service.name,
                 }))}
                 className="w-full px-3 py-2 rounded-md"
@@ -108,9 +121,14 @@ const AddCaseStudy = () => {
 
             <button
               type="submit"
-              className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors duration-200"
+              disabled={submitting}
+              className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Add Case Study
+              {submitting ? (
+                <CgSpinner size={24} className="animate-spin mx-auto" />
+              ) : (
+                <span>Add Case Study</span>
+              )}
             </button>
           </div>
         </Form>

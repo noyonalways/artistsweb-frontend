@@ -1,9 +1,9 @@
 import CaseStudyCard from "@/components/case-study-card";
-import { getCaseStudies } from "@/service/caseStudy";
+import { getCaseStudies } from "@/service/case-study";
 import { TCaseStudy } from "@/types/caseStudy";
 
 const CaseStudySection = async () => {
-  const res = await getCaseStudies();
+  const res = await getCaseStudies({ limit: 4 });
   const caseStudies: TCaseStudy[] = res?.data;
 
   return (
