@@ -1,5 +1,5 @@
 import UpdateHeroSectionButton from "@/components/buttons/update-hero-section-button";
-import { getCaseStudies } from "@/service/case-study";
+import { getCaseStudies } from "@/service/caseStudy";
 import { getFeedbacks } from "@/service/feedback";
 import { loadHeroSectionData } from "@/service/heroSection";
 import { getServices } from "@/service/service";

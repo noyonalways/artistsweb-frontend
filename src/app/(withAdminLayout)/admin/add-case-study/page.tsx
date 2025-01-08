@@ -1,6 +1,6 @@
 import AddCaseStudy from "@/modules/admin/add-case-study";
 import ManageCaseStudies from "@/modules/admin/manage-case-studies";
-import { getCaseStudies } from "@/service/case-study";
+import { getCaseStudies } from "@/service/caseStudy";
 import { getServices } from "@/service/service";
 import { TCaseStudy } from "@/types/caseStudy";
 import { TService } from "@/types/service";

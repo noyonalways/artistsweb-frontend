@@ -1,7 +1,11 @@
 import Button from "@/components/ui/button";
-import WorkCard from "@/components/work-card";
+import { getWorks } from "@/service/work";
+import { TWork } from "@/types/work";
+import Works from "./works";
 
-const WorkSection = () => {
+const WorkSection = async () => {
+  const res = await getWorks();
+  const works: TWork[] = res?.data;
   return (
     <section className="pb-10">
       <div className="container">
@@ -29,11 +33,7 @@ const WorkSection = () => {
           </div>
 
           {/* cards */}
-          <div className="flex flex-col lg:block gap-6">
-            <WorkCard />
-            {/* <WorkCard />
-            <WorkCard /> */}
-          </div>
+          <Works works={works} />
         </div>
       </div>
     </section>

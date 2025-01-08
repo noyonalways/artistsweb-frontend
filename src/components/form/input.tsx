@@ -1,5 +1,6 @@
 "use client";
 
+import { get } from "lodash";
 import { useFormContext } from "react-hook-form";
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -12,7 +13,7 @@ const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
     formState: { errors },
   } = useFormContext();
 
-  const errorMessage = errors[name]?.message as string | undefined;
+  const errorMessage = get(errors, `${name}.message`) as string | undefined;
 
   return (
     <div className="flex flex-col space-y-1">

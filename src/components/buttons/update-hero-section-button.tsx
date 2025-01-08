@@ -1,12 +1,11 @@
 "use client";
 
-import { heroSectionSchema } from "@/schemas/hero-section";
+import { THeroSection } from "@/types/hereSection";
 import { useState } from "react";
-import { z } from "zod";
 import UpdateHeroSection from "../modals/update-hero-section";
 
 interface Props {
-  initialData: z.infer<typeof heroSectionSchema>;
+  initialData: THeroSection;
 }
 
 const UpdateHeroSectionButton = ({ initialData }: Props) => {
