@@ -68,7 +68,7 @@ const DashboardPage = async () => {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hero Section Update Button */}
       <div className="bg-white p-6 rounded-lg shadow-sm">
         <div className="flex justify-between items-center">
@@ -104,7 +104,7 @@ const DashboardPage = async () => {
       </div>
 
       {/* Recent Items Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Recent Works */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <div className="flex justify-between items-center mb-4">
