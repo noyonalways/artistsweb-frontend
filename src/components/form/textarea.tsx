@@ -2,11 +2,16 @@
 
 import { useFormContext } from "react-hook-form";
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
 }
 
-const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
+const Textarea: React.FC<TextareaProps> = ({
+  name,
+  className = "",
+  ...props
+}) => {
   const {
     register,
     formState: { errors },
@@ -16,7 +21,7 @@ const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
 
   return (
     <div className="flex flex-col space-y-1">
-      <input
+      <textarea
         {...register(name)}
         className={`outline-none border ${
           errorMessage
@@ -30,4 +35,4 @@ const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
   );
 };
 
-export default Input;
+export default Textarea;

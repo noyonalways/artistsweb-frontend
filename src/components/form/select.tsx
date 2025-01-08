@@ -2,11 +2,17 @@
 
 import { useFormContext } from "react-hook-form";
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
+  options: { value: string; label: string }[];
 }
 
-const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
+const Select: React.FC<SelectProps> = ({
+  name,
+  options,
+  className = "",
+  ...props
+}) => {
   const {
     register,
     formState: { errors },
@@ -16,7 +22,7 @@ const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
 
   return (
     <div className="flex flex-col space-y-1">
-      <input
+      <select
         {...register(name)}
         className={`outline-none border ${
           errorMessage
@@ -24,10 +30,17 @@ const Input: React.FC<IProps> = ({ name, className = "", ...props }) => {
             : "border-gray-300 focus:border-primary"
         } ${className}`}
         {...props}
-      />
+      >
+        <option value="">Select an option</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       {errorMessage && <small className="text-red-500">{errorMessage}</small>}
     </div>
   );
 };
 
-export default Input;
+export default Select;

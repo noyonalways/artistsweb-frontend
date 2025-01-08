@@ -1,3 +1,4 @@
+import { UserProvider } from "@/context/user-context";
 import { onest } from "@/fonts";
 import type { Metadata } from "next";
 import { Toaster } from "sonner";
@@ -17,8 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${onest.variable} antialiased font-onest`}>
-        <Toaster richColors position="top-center" />
-        {children}
+        <UserProvider>
+          <Toaster richColors position="top-center" />
+          {children}
+        </UserProvider>
       </body>
     </html>
   );

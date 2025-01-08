@@ -2,15 +2,15 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { feedbackSchema } from "@/schemas/feedback";
+import { caseStudySchema } from "@/schemas/case-study";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
-type GetFeedbacksParams = Record<string, string | number | boolean>;
+type GetCaseStudiesParams = Record<string, string | number | boolean>;
 
-export const getFeedbacks = async (params?: GetFeedbacksParams) => {
+export const getCaseStudies = async (params?: GetCaseStudiesParams) => {
   try {
-    const url = new URL(`${API_BASE_URL}/feedbacks`);
+    const url = new URL(`${API_BASE_URL}/case-studies`);
 
     if (params) {
       Object.entries(params).forEach(([key, value]) => {
@@ -21,7 +21,7 @@ export const getFeedbacks = async (params?: GetFeedbacksParams) => {
     const res = await fetch(url.toString(), {
       cache: "no-cache",
       next: {
-        tags: ["feedbacks"],
+        tags: ["case-studies"],
       },
     });
 
@@ -34,38 +34,38 @@ export const getFeedbacks = async (params?: GetFeedbacksParams) => {
   }
 };
 
-export const createFeedback = async (
-  payload: z.infer<typeof feedbackSchema>
+export const createCaseStudy = async (
+  payload: z.infer<typeof caseStudySchema>
 ) => {
   try {
-    const response = await axiosInstance.post("/feedbacks", payload);
-    revalidateTag("feedbacks");
+    const response = await axiosInstance.post("/case-studies", payload);
+    revalidateTag("case-studies");
     return response.data;
   } catch (error) {
     return error;
   }
 };
 
-export const updateFeedback = async (
-  feedbackId: string,
-  payload: z.infer<typeof feedbackSchema>
+export const updateCaseStudy = async (
+  caseStudyId: string,
+  payload: z.infer<typeof caseStudySchema>
 ) => {
   try {
     const response = await axiosInstance.patch(
-      `/feedbacks/${feedbackId}`,
+      `/case-studies/${caseStudyId}`,
       payload
     );
-    revalidateTag("feedbacks");
+    revalidateTag("case-studies");
     return response.data;
   } catch (error) {
     return error;
   }
 };
 
-export const deleteFeedback = async (feedbackId: string) => {
+export const deleteCaseStudy = async (caseStudyId: string) => {
   try {
-    const response = await axiosInstance.delete(`/feedbacks/${feedbackId}`);
-    revalidateTag("feedbacks");
+    const response = await axiosInstance.delete(`/case-studies/${caseStudyId}`);
+    revalidateTag("case-studies");
     return response.data;
   } catch (error) {
     return error;
