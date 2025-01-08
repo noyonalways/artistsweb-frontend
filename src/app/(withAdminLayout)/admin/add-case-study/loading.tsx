@@ -2,7 +2,7 @@ const AddCaseStudyLoading = () => {
   return (
     <div className="grid lg:grid-cols-2 gap-4">
       {/* Add Form Skeleton */}
-      <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
+      <div className="bg-white p-2 lg:p-6 lg:shadow-sm rounded-md shadow-sm lg:rounded-lg ">
         <div className="h-8 w-48 bg-gray-200 rounded animate-pulse mb-6"></div>
         <div className="space-y-6">
           <div>

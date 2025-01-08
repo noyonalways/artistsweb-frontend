@@ -2,15 +2,19 @@ const AddFeedbackLoading = () => {
   return (
     <div className="grid lg:grid-cols-2 gap-4">
       {/* Add Form Skeleton */}
-      <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
+      <div className="bg-white p-2 lg:p-6 lg:shadow-sm rounded-md shadow-sm lg:rounded-lg">
         <div className="h-8 w-48 bg-gray-200 rounded animate-pulse mb-6"></div>
         <div className="space-y-6">
-          {[...Array(4)].map((_, i) => (
+          {[...Array(3)].map((_, i) => (
             <div key={i}>
               <div className="h-4 w-24 bg-gray-200 rounded animate-pulse mb-1"></div>
               <div className="h-10 w-full bg-gray-200 rounded animate-pulse"></div>
             </div>
           ))}
+          <div>
+            <div className="h-4 w-24 bg-gray-200 rounded animate-pulse mb-1"></div>
+            <div className="h-28 w-full bg-gray-200 rounded animate-pulse"></div>
+          </div>
           <div className="h-10 w-full bg-gray-200 rounded animate-pulse"></div>
         </div>
       </div>

@@ -41,7 +41,7 @@ const AddCaseStudy = ({ services }: IProps) => {
 
   return (
     <div>
-      <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
+      <div className="bg-white p-2 lg:p-6 rounded-md shadow-sm lg:rounded-lg">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           Add New Case Study
         </h1>

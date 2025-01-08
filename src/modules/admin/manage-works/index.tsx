@@ -5,7 +5,7 @@ import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Switch from "@/components/form/switch";
 import TagInput from "@/components/form/tag-input";
-import { workSchema } from "@/schemas/work";
+import { updateWorkSchema } from "@/schemas/work";
 import { deleteWork, updateWork } from "@/service/work";
 import { TWork } from "@/types/work";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,7 +25,7 @@ const ManageWorks = ({ works }: IProps) => {
   const [updating, setUpdating] = useState(false);
   const [deleting, setDeleting] = useState<string | null>(null);
 
-  const handleUpdate = async (data: z.infer<typeof workSchema>) => {
+  const handleUpdate = async (data: z.infer<typeof updateWorkSchema>) => {
     if (!editingWork) return;
 
     try {
@@ -79,8 +79,13 @@ const ManageWorks = ({ works }: IProps) => {
           </div>
           <Form
             onSubmit={handleUpdate}
-            resolver={zodResolver(workSchema)}
-            defaultValues={{ ...editingWork }}
+            resolver={zodResolver(updateWorkSchema)}
+            defaultValues={{
+              title: editingWork.title,
+              image: editingWork.image,
+              tags: editingWork.tags,
+              isLatest: editingWork.isLatest,
+            }}
           >
             <div className="space-y-4">
               <div>
