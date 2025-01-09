@@ -10,7 +10,7 @@
 <p align="center">
     <img src="./public/logo.png" alt="Logo" width="80" height="80" style="border-radius:50%;" />
     <h3 align="center">
-        <a href="#" target="_blank" >
+        <a href="https://artistsweb.vercel.app" target="_blank" >
             Artistsweb Frontend
         </a>
     </h3>
@@ -19,6 +19,8 @@
 ## Description
 
 This project is a frontend application for Artistsweb, designed to showcase artists and their works. It provides a user-friendly interface and integrates with the backend API for dynamic content.
+
+### [Artistsweb Live](https://artistsweb.vercel.app/)
 
 ## API Repository
 
