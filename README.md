@@ -26,6 +26,42 @@ This project is a frontend application for Artistsweb, designed to showcase arti
 
 - API Repository: [Artistsweb API](https://github.com/noyonalways/artistsweb-api)
 
+## Local Setup and Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/noyonalways/artistsweb-frontend.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd artistsweb-frontend
+   ```
+3. Install the dependencies using npm or yarn:
+
+   ```bash
+   # Using npm
+   npm install
+
+   # OR using yarn
+   yarn install
+   ```
+
+4. Set up your environment variables (following the `example.env` file):
+   - Create a `.env` file in the root directory and add your API base URL:
+     ```
+     NEXT_PUBLIC_API_BASE_URL=your_api_base_url
+     NODE_ENV=development
+     ```
+5. Start the development server:
+
+   ```bash
+   # Using npm
+   npm run dev
+
+   # OR using yarn
+   yarn dev
+   ```
+
 ## Contact
 
 - Email: [noyonrahman2003@gmail.com](mailto:noyonrahman2003@gmail.com)
