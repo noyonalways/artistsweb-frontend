@@ -4,7 +4,7 @@ import Form from "@/components/form/form";
 import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Textarea from "@/components/form/textarea";
-import { feedbackSchema } from "@/schemas/feedback";
+import { updateFeedbackSchema } from "@/schemas/feedback";
 import { deleteFeedback, updateFeedback } from "@/service/feedback";
 import { TFeedback } from "@/types/feedback";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +26,7 @@ const ManageFeedbacks = ({ feedbacks }: IProps) => {
   const [updating, setUpdating] = useState(false);
   const [deleting, setDeleting] = useState<string | null>(null);
 
-  const handleUpdate = async (data: z.infer<typeof feedbackSchema>) => {
+  const handleUpdate = async (data: z.infer<typeof updateFeedbackSchema>) => {
     if (!editingFeedback) return;
 
     try {
@@ -80,7 +80,7 @@ const ManageFeedbacks = ({ feedbacks }: IProps) => {
           </div>
           <Form
             onSubmit={handleUpdate}
-            resolver={zodResolver(feedbackSchema)}
+            resolver={zodResolver(updateFeedbackSchema)}
             defaultValues={{ ...editingFeedback }}
           >
             <div className="space-y-4">
@@ -144,9 +144,9 @@ const ManageFeedbacks = ({ feedbacks }: IProps) => {
             {feedbacks?.map((feedback) => (
               <div
                 key={feedback._id}
-                className="p-4 flex items-center justify-between hover:bg-gray-50"
+                className="p-4 flex gap-4 lg:items-center flex-col lg:flex-row hover:bg-gray-50"
               >
-                <div className="flex flex-col lg:flex-row gap-4">
+                <>
                   <Image
                     height={100}
                     width={100}
@@ -154,42 +154,45 @@ const ManageFeedbacks = ({ feedbacks }: IProps) => {
                     alt={feedback.name}
                     className="w-12 h-12 rounded-full object-cover"
                   />
-                  <div className="flex-1">
-                    <div className="flex justify-between">
-                      <div className="">
-                        <h3 className="font-medium text-gray-900">
-                          {feedback.name}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          {feedback.companyName}
-                        </p>
+                  <>
+                    <div className="space-y-1 flex-1">
+                      <div className="flex justify-between">
+                        <div className="flex-1  overflow-hidden">
+                          <h3 className="font-medium text-gray-900 w-full truncate">
+                            {feedback.name}
+                          </h3>
+                          <p className="text-sm text-gray-500 truncate">
+                            {feedback.companyName}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => setEditingFeedback(feedback)}
+                            className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"
+                          >
+                            <FiEdit2 size={18} />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(feedback._id)}
+                            disabled={deleting === feedback._id}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-full disabled:opacity-50"
+                          >
+                            {deleting === feedback._id ? (
+                              <CgSpinner size={18} className="animate-spin" />
+                            ) : (
+                              <FiTrash2 size={18} />
+                            )}
+                          </button>
+                        </div>
                       </div>
 
-                      <div className="flex items-center space-x-2">
-                        <button
-                          onClick={() => setEditingFeedback(feedback)}
-                          className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"
-                        >
-                          <FiEdit2 size={18} />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(feedback._id)}
-                          disabled={deleting === feedback._id}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-full disabled:opacity-50"
-                        >
-                          {deleting === feedback._id ? (
-                            <CgSpinner size={18} className="animate-spin" />
-                          ) : (
-                            <FiTrash2 size={18} />
-                          )}
-                        </button>
-                      </div>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {feedback.message}
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {feedback.message}
-                    </p>
-                  </div>
-                </div>
+                  </>
+                </>
               </div>
             ))}
           </div>

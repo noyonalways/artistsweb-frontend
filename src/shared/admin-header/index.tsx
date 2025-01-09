@@ -9,11 +9,11 @@ export default function Header({
 }) {
   return (
     <header className="sticky top-0 z-10 flex-shrink-0 bg-white border-b border-gray-200">
-      <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-4">
+      <div className="flex items-center justify-between h-16 px-2 sm:px-6 lg:px-4">
         <div className="flex items-center">
           <button
             type="button"
-            className="text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
+            className="rounded-md p-2 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <HiMenu className="w-6 h-6" />

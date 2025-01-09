@@ -2,7 +2,7 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { workSchema } from "@/schemas/work";
+import { createWorkSchema, updateWorkSchema } from "@/schemas/work";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
@@ -34,7 +34,7 @@ export const getWorks = async (params?: GetWorksParams) => {
   }
 };
 
-export const createWork = async (payload: z.infer<typeof workSchema>) => {
+export const createWork = async (payload: z.infer<typeof createWorkSchema>) => {
   try {
     const response = await axiosInstance.post("/works", payload);
     revalidateTag("works");
@@ -46,7 +46,7 @@ export const createWork = async (payload: z.infer<typeof workSchema>) => {
 
 export const updateWork = async (
   workId: string,
-  payload: z.infer<typeof workSchema>
+  payload: z.infer<typeof updateWorkSchema>
 ) => {
   try {
     const response = await axiosInstance.patch(`/works/${workId}`, payload);

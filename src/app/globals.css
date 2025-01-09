@@ -14,22 +14,6 @@
   }
 } */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #111111;
-}
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #111111;
-    --foreground: #ffffff;
-  }
-} */
-
 @layer base {
   .btn {
     @apply border border-primary h-[40px] rounded-full relative overflow-hidden;
@@ -114,6 +98,10 @@
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -122,5 +110,5 @@ body {
 
 * {
   scrollbar-width: thin;
-  scroll-behavior: smooth;
+
 }

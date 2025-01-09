@@ -2,7 +2,10 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { caseStudySchema } from "@/schemas/caseStudy";
+import {
+  createCaseStudySchema,
+  updateCaseStudySchema,
+} from "@/schemas/caseStudy";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
@@ -35,7 +38,7 @@ export const getCaseStudies = async (params?: GetCaseStudiesParams) => {
 };
 
 export const createCaseStudy = async (
-  payload: z.infer<typeof caseStudySchema>
+  payload: z.infer<typeof createCaseStudySchema>
 ) => {
   try {
     const response = await axiosInstance.post("/case-studies", payload);
@@ -48,7 +51,7 @@ export const createCaseStudy = async (
 
 export const updateCaseStudy = async (
   caseStudyId: string,
-  payload: z.infer<typeof caseStudySchema>
+  payload: z.infer<typeof updateCaseStudySchema>
 ) => {
   try {
     const response = await axiosInstance.patch(

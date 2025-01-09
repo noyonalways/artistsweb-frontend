@@ -71,22 +71,22 @@ export default function Sidebar({
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between h-16 px-6 bg-gray-100 border-b">
+        <div className="flex items-center justify-between h-16 px-2 bg-gray-100 border-b">
           <Link
             href="/admin/dashboard"
-            className="text-xl font-semibold text-gray-800"
+            className="text-lg md:text-xl font-semibold text-gray-800"
           >
             Manage Contents
           </Link>
           <button
-            className="p-1 text-gray-500 rounded-md lg:hidden hover:text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            className="p-2 text-gray-500 rounded-md lg:hidden hover:text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             onClick={() => setOpen(false)}
           >
             <HiX className="w-6 h-6" />
           </button>
         </div>
 
-        <nav className="px-4 py-4">
+        <nav className="px-2 md:px-4 py-4">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (

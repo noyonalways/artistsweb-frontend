@@ -5,7 +5,7 @@ import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Switch from "@/components/form/switch";
 import TagInput from "@/components/form/tag-input";
-import { workSchema } from "@/schemas/work";
+import { createWorkSchema } from "@/schemas/work";
 import { createWork } from "@/service/work";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -16,7 +16,7 @@ import { z } from "zod";
 const AddWork = () => {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (data: z.infer<typeof workSchema>) => {
+  const onSubmit = async (data: z.infer<typeof createWorkSchema>) => {
     try {
       setLoading(true);
       const response = await createWork(data);
@@ -36,12 +36,12 @@ const AddWork = () => {
 
   return (
     <div>
-      <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
+      <div className="bg-white p-2 lg:p-6 rounded-md shadow-sm lg:rounded-lg">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           Add New Work
         </h1>
 
-        <Form onSubmit={onSubmit} resolver={zodResolver(workSchema)}>
+        <Form onSubmit={onSubmit} resolver={zodResolver(createWorkSchema)}>
           <div className="space-y-6">
             <div>
               <Label htmlFor="title">Title</Label>

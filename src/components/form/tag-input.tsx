@@ -38,11 +38,6 @@ const TagInput = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const error = errors[name];
 
-  // Initialize the field with an empty array
-  useEffect(() => {
-    setValue(name, [], { shouldValidate: false });
-  }, [name, setValue]);
-
   // Handle clicks outside the component
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -99,8 +94,8 @@ const TagInput = ({
       !value.includes(suggestion)
   );
 
-  // Register the field
-  register(name);
+  // Register the field with default value preservation
+  register(name, { value: value });
 
   return (
     <div className="relative" ref={containerRef}>

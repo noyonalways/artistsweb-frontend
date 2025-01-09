@@ -2,7 +2,7 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { serviceSchema } from "@/schemas/service";
+import { createServiceSchema, updateServiceSchema } from "@/schemas/service";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
@@ -36,7 +36,9 @@ export const getServices = async (params?: GetServicesParams) => {
   }
 };
 
-export const createService = async (payload: z.infer<typeof serviceSchema>) => {
+export const createService = async (
+  payload: z.infer<typeof createServiceSchema>
+) => {
   try {
     const response = await axiosInstance.post("/services", payload);
 
@@ -49,7 +51,7 @@ export const createService = async (payload: z.infer<typeof serviceSchema>) => {
 
 export const updateService = async (
   serviceId: string,
-  payload: z.infer<typeof serviceSchema>
+  payload: z.infer<typeof updateServiceSchema>
 ) => {
   try {
     const response = await axiosInstance.patch(

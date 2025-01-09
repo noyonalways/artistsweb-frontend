@@ -4,7 +4,7 @@ import Form from "@/components/form/form";
 import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Textarea from "@/components/form/textarea";
-import { serviceSchema } from "@/schemas/service";
+import { createServiceSchema } from "@/schemas/service";
 import { createService } from "@/service/service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -15,7 +15,7 @@ import { z } from "zod";
 const AddService = () => {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (data: z.infer<typeof serviceSchema>) => {
+  const onSubmit = async (data: z.infer<typeof createServiceSchema>) => {
     try {
       setLoading(true);
       const response = await createService(data);
@@ -37,12 +37,12 @@ const AddService = () => {
 
   return (
     <div>
-      <div className="bg-white p-2 lg:p-6 lg:rounded-lg lg:shadow-sm">
+      <div className="bg-white p-2 lg:p-6 rounded-md shadow-sm lg:rounded-lg">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">
           Add New Service
         </h1>
 
-        <Form onSubmit={onSubmit} resolver={zodResolver(serviceSchema)}>
+        <Form onSubmit={onSubmit} resolver={zodResolver(createServiceSchema)}>
           <div className="space-y-6">
             <div>
               <Label htmlFor="name">Service Name</Label>

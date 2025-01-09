@@ -4,7 +4,7 @@ import Form from "@/components/form/form";
 import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Textarea from "@/components/form/textarea";
-import { serviceSchema } from "@/schemas/service";
+import { updateServiceSchema } from "@/schemas/service";
 import { deleteService, updateService } from "@/service/service";
 import { TService } from "@/types/service";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,7 +23,7 @@ const ManageServices = ({ services }: IProps) => {
   const [updating, setUpdating] = useState(false);
   const [deleting, setDeleting] = useState<string | null>(null);
 
-  const handleUpdate = async (data: z.infer<typeof serviceSchema>) => {
+  const handleUpdate = async (data: z.infer<typeof updateServiceSchema>) => {
     if (!editingService) return;
 
     try {
@@ -79,7 +79,7 @@ const ManageServices = ({ services }: IProps) => {
           </div>
           <Form
             onSubmit={handleUpdate}
-            resolver={zodResolver(serviceSchema)}
+            resolver={zodResolver(updateServiceSchema)}
             defaultValues={{ ...editingService }}
           >
             <div className="space-y-4">

@@ -38,7 +38,7 @@ export default function AvatarDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute right-2 z-10 mt-0 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="pt-1">
             <div className="px-4 py-2 border-b">
               <p className="text-sm font-medium text-gray-900">{user.email}</p>
@@ -46,7 +46,7 @@ export default function AvatarDropdown() {
             </div>
             <button
               onClick={logout}
-              className="w-full px-4 py-2 text-left text-sm text-red-400 hover:bg-red-500/10 transition-colors duration-200"
+              className="w-full px-4 py-2 text-left text-sm text-red-500 hover:bg-red-500/15 transition-colors duration-200"
             >
               Logout
             </button>
