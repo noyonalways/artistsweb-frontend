@@ -15,16 +15,15 @@ export const createWorkSchema = z.object({
 });
 
 export const updateWorkSchema = z.object({
-  title: z.string().min(1, "Title is required").optional(),
+  title: z.string().min(1, "Title is required"),
   image: z
     .string()
     .min(1, "Image is required")
-    .url("Provide a valid image url")
-    .optional(),
+    .url("Provide a valid image url"),
   tags: z
-    .array(z.string().optional(), {
+    .array(z.string(), {
       required_error: "At least one tag is required",
     })
-    .optional(),
-  isLatest: z.boolean().optional(),
+    .min(1, "At least one tag is required"),
+  isLatest: z.boolean(),
 });

@@ -5,7 +5,7 @@ import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Select from "@/components/form/select";
 import Switch from "@/components/form/switch";
-import { caseStudySchema } from "@/schemas/caseStudy";
+import { createCaseStudySchema } from "@/schemas/caseStudy";
 import { createCaseStudy } from "@/service/caseStudy";
 import { TService } from "@/types/service";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +21,7 @@ interface IProps {
 const AddCaseStudy = ({ services }: IProps) => {
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = async (data: z.infer<typeof caseStudySchema>) => {
+  const onSubmit = async (data: z.infer<typeof createCaseStudySchema>) => {
     try {
       setSubmitting(true);
       const response = await createCaseStudy(data);
@@ -46,7 +46,7 @@ const AddCaseStudy = ({ services }: IProps) => {
           Add New Case Study
         </h1>
 
-        <Form onSubmit={onSubmit} resolver={zodResolver(caseStudySchema)}>
+        <Form onSubmit={onSubmit} resolver={zodResolver(createCaseStudySchema)}>
           <div className="space-y-6">
             <div>
               <Label htmlFor="service">Service</Label>

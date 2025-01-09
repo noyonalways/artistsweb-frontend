@@ -1,6 +1,6 @@
 "use server";
 
-import { API_BASE_URL, NODE_ENV } from "@/config/environment";
+import { API_BASE_URL } from "@/config/environment";
 import { loginSchema } from "@/schemas/auth";
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
@@ -19,11 +19,7 @@ export const login = async (payload: z.infer<typeof loginSchema>) => {
     const data = await res.json();
 
     if (data?.success) {
-      cookiesStore.set("access_token", data?.data?.accessToken, {
-        secure: NODE_ENV === "production",
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 * 60 * 365,
-      });
+      cookiesStore.set("access_token", data?.data?.accessToken);
     }
 
     return data;

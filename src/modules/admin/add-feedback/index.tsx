@@ -4,7 +4,7 @@ import Form from "@/components/form/form";
 import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Textarea from "@/components/form/textarea";
-import { feedbackSchema } from "@/schemas/feedback";
+import { createFeedbackSchema } from "@/schemas/feedback";
 import { createFeedback } from "@/service/feedback";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -15,7 +15,7 @@ import { z } from "zod";
 const AddFeedback = () => {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (data: z.infer<typeof feedbackSchema>) => {
+  const onSubmit = async (data: z.infer<typeof createFeedbackSchema>) => {
     try {
       setLoading(true);
       const response = await createFeedback(data);
@@ -40,7 +40,7 @@ const AddFeedback = () => {
           Add New Feedback
         </h1>
 
-        <Form onSubmit={onSubmit} resolver={zodResolver(feedbackSchema)}>
+        <Form onSubmit={onSubmit} resolver={zodResolver(createFeedbackSchema)}>
           <div className="space-y-6">
             <div>
               <Label htmlFor="companyName">Company Name</Label>

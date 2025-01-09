@@ -2,7 +2,7 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { heroSectionSchema } from "@/schemas/heroSection";
+import { updateHeroSectionSchema } from "@/schemas/heroSection";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
@@ -25,7 +25,7 @@ export const loadHeroSectionData = async () => {
 };
 
 export const updateHeroSection = async (
-  payload: z.infer<typeof heroSectionSchema>
+  payload: z.infer<typeof updateHeroSectionSchema>
 ) => {
   try {
     const response = await axiosInstance.patch("/hero-section", payload);

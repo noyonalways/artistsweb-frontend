@@ -6,7 +6,7 @@ import Label from "@/components/form/label";
 import Select from "@/components/form/select";
 import Switch from "@/components/form/switch";
 import { API_BASE_URL } from "@/config/environment";
-import { caseStudySchema } from "@/schemas/caseStudy";
+import { updateCaseStudySchema } from "@/schemas/caseStudy";
 import { deleteCaseStudy, updateCaseStudy } from "@/service/caseStudy";
 import { TCaseStudy } from "@/types/caseStudy";
 import { TService } from "@/types/service";
@@ -50,7 +50,7 @@ const ManageCaseStudies = ({ caseStudies }: IProps) => {
     fetchServices();
   }, []); // Empty dependency array means it runs once on mount
 
-  const handleUpdate = async (data: z.infer<typeof caseStudySchema>) => {
+  const handleUpdate = async (data: z.infer<typeof updateCaseStudySchema>) => {
     if (!editingCaseStudy) return;
 
     try {
@@ -108,7 +108,7 @@ const ManageCaseStudies = ({ caseStudies }: IProps) => {
           </div>
           <Form
             onSubmit={handleUpdate}
-            resolver={zodResolver(caseStudySchema)}
+            resolver={zodResolver(updateCaseStudySchema)}
             defaultValues={{
               name: editingCaseStudy.name,
               image: editingCaseStudy.image,

@@ -33,7 +33,7 @@ export function NavigationMenu({ isOpen, onClose }: NavigationMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed left-0 right-0 inset-0 text-white flex h-screen items-start lg:items-center lg:justify-center p-5 lg:p-0 z-50 bg-[#111]/50 backdrop-blur"
+            className="fixed left-0 right-0 inset-0 text-white flex h-screen items-start lg:items-center lg:justify-center p-5 lg:p-0 z-50 bg-[#111]/50 backdrop-blur lg:backdrop-blur-lg"
             onClick={onClose}
           >
             <motion.div

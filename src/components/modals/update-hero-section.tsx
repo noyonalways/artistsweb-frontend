@@ -3,7 +3,7 @@
 import Input from "@/components/form/input";
 import Label from "@/components/form/label";
 import Textarea from "@/components/form/textarea";
-import { heroSectionSchema } from "@/schemas/heroSection";
+import { updateHeroSectionSchema } from "@/schemas/heroSection";
 import { updateHeroSection } from "@/service/heroSection";
 import { THeroSection } from "@/types/hereSection";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,7 +25,7 @@ const UpdateHeroSection = ({ isOpen, onClose, initialData }: Props) => {
   const [loading, setLoading] = useState(false);
 
   const methods = useForm({
-    resolver: zodResolver(heroSectionSchema),
+    resolver: zodResolver(updateHeroSectionSchema),
     defaultValues: {
       heading: initialData?.heading || "",
       subheading: initialData?.subheading || "",
@@ -51,7 +51,7 @@ const UpdateHeroSection = ({ isOpen, onClose, initialData }: Props) => {
     append({ title: "", value: "" });
   };
 
-  const onSubmit = async (data: z.infer<typeof heroSectionSchema>) => {
+  const onSubmit = async (data: z.infer<typeof updateHeroSectionSchema>) => {
     try {
       setLoading(true);
       const response = await updateHeroSection(data);

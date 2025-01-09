@@ -16,7 +16,13 @@
     </h3>
 </p>
 
-## Table of Contents
+## Description
+
+This project is a frontend application for Artistsweb, designed to showcase artists and their works. It provides a user-friendly interface and integrates with the backend API for dynamic content.
+
+## API Repository
+
+- API Repository: [Artistsweb API](https://github.com/noyonalways/artistsweb-api)
 
 ## Contact
 

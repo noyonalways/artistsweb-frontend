@@ -2,7 +2,7 @@
 
 import { API_BASE_URL } from "@/config/environment";
 import axiosInstance from "@/lib/axios";
-import { feedbackSchema } from "@/schemas/feedback";
+import { createFeedbackSchema, updateFeedbackSchema } from "@/schemas/feedback";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
@@ -35,7 +35,7 @@ export const getFeedbacks = async (params?: GetFeedbacksParams) => {
 };
 
 export const createFeedback = async (
-  payload: z.infer<typeof feedbackSchema>
+  payload: z.infer<typeof createFeedbackSchema>
 ) => {
   try {
     const response = await axiosInstance.post("/feedbacks", payload);
@@ -48,7 +48,7 @@ export const createFeedback = async (
 
 export const updateFeedback = async (
   feedbackId: string,
-  payload: z.infer<typeof feedbackSchema>
+  payload: z.infer<typeof updateFeedbackSchema>
 ) => {
   try {
     const response = await axiosInstance.patch(

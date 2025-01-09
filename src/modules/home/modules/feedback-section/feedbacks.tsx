@@ -8,25 +8,19 @@ import { ImSpinner8 } from "react-icons/im";
 
 const TitleCard = () => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: cardProgress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(cardProgress, [0, 0.5, 1], [0.9, 1, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.3], [100, 0]);
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0 }}
-      whileInView={{
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      }}
-      style={{ scale }}
-      viewport={{ once: true, margin: "-100px" }}
+      style={{ opacity, y }}
+      viewport={{ once: true }}
       className="origin-center container md:max-w-[768px] lg:max-w-[1024] xl:max-w-[1280px] 2xl:max-w-[1440px] mb-8 lg:mb-20"
     >
       <div>
@@ -50,30 +44,27 @@ const TitleCard = () => {
 
 interface IFeedbackItemProps {
   feedback: TFeedback;
-  index: number;
 }
 
-const FeedbackItem = ({ feedback, index }: IFeedbackItemProps) => {
+const FeedbackItem = ({ feedback }: IFeedbackItemProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: cardProgress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: cardRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "center center", "end start"],
   });
 
-  const scale = useTransform(cardProgress, [0, 0.5, 1], [0.9, 1, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.3], [100, 0]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.5, 0.6, 0.7, 1],
+    [0.95, 0.95, 0.97, 0.99, 1, 1]
+  );
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0 }}
-      whileInView={{
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-          delay: index * 0.1,
-        },
-      }}
-      style={{ scale }}
+      style={{ opacity, y, scale }}
       viewport={{ once: true, margin: "-100px" }}
       className="origin-center container md:max-w-[768px] lg:max-w-[1024] xl:max-w-[1280px] 2xl:max-w-[1440px]"
     >
@@ -97,8 +88,8 @@ const Feedbacks = ({ feedbacks }: IProps) => {
     <div ref={containerRef} className="space-y-6 lg:space-y-16 relative">
       <TitleCard />
 
-      {feedbacks.map((feedback, index) => (
-        <FeedbackItem key={feedback._id} feedback={feedback} index={index} />
+      {feedbacks?.map((feedback) => (
+        <FeedbackItem key={feedback._id} feedback={feedback} />
       ))}
 
       {/* Scroll Progress Indicator */}
